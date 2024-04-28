@@ -1,0 +1,32 @@
+[
+    {
+        "keys": ["home"],
+        "command": "move_to",
+        "args": {"to": "bol"}
+    },
+    {
+        "keys": ["end"],
+        "command": "move_to",
+        "args": {"to": "eol"}
+    },
+    {
+        "keys": ["super+right"],
+        "command": "move",
+        "args": {"by": "words", "forward": true}
+    },
+    {
+        "keys": ["super+left"],
+        "command": "move",
+        "args": {"by": "words", "forward": false}
+    },
+    {
+        "keys": ["shift+home"],
+        "command": "move_to",
+        "args": {"to": "bol", "extend": true }
+    },
+    {
+        "keys": ["shift+end"],
+        "command": "move_to",
+        "args": {"to": "eol", "extend": true}
+    }
+]
