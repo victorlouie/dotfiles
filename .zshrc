@@ -1,12 +1,12 @@
-# .zshrc [Read when interactive]
+# .zshrc [Load when interactive]
 #   - PRIORITY: 3
 #   - interactive usage
 #       - prompt
 #       - command completion
 #       - command correction
-#       - command suggestion
 #       - command highlighting
 #       - command history management
+#       - command suggestion
 #       - output colouring
 #       - aliases
 #       - functions
@@ -90,7 +90,6 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 plugins=(
   git
   history-substring-search
-  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -133,8 +132,10 @@ subl() {
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Install via brew
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
