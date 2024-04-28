@@ -1,0 +1,7 @@
+[user]
+    name = Victor Louie
+    email = name@email.com
+
+[core]
+    sshCommand = ssh -i ~/.ssh/keys/__example__.id_ed25519
+
