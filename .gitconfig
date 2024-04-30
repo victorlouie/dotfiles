@@ -1,3 +1,6 @@
+[includeIf "gitdir:~/.dotfiles/"]
+    path = ~/git/victorlouie/.gitconfig
+
 [includeIf "gitdir:~/git/victorlouie/"]
     path = ~/git/victorlouie/.gitconfig
 
