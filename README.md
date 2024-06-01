@@ -5,8 +5,17 @@
 Ensure you have the following installed
 
 ### Git
+```sh
+$ brew install git
+```
 
-### Brew
+### Homebrew
+```sh
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+[HomeBrew](https://brew.sh/) is a package management system for MacOS.
+
 
 ### Stow
 ```sh
@@ -15,26 +24,31 @@ $ brew install stow
 
 ## Installation
 
-Check out the `dotfiles` repository into your $HOME directory using `git`
-
-> [!WARNING]
-> There might be a chicken/egg condition because of the order of execution with pulling down the `dotfiles` repository
+Check out the `dotfiles` repository into your $HOME directory using `git` into a `.dotfiles` directory
 
 ```sh
-cd
-git clone git@github.com/victorlouie/dotfiles.git
+git clone git@github.com/victorlouie/dotfiles.git ~/.dotfiles
 
-cd dotfiles
-stow .
+cd ~/.dotfiles
+
+stow --no-folding .
 ```
 
+> [!NOTE]
+> Default behaviour is link directories. `--no-folding` creates the directories and links the files instead of directories
+
+
+## Useful Commands
 ```sh
-mkdir -p ~/git/victorlouie
-cd ~/git/victorlouie
-git clone git@github.com:victorlouie/dotfiles.git
+# Simulate stowing with verbose output
+stow --no-folding -nv .
 
-ln -nsf ~/git/victorlouie/dotfiles ~/.dotfiles
-
-cd dotfiles
-stow -t ~ -v .
+# Simulate unstowing with verbose output
+stow --no-folding -Dnv .
 ```
+
+## Ideas 🤔
+- Separate the MacOS specific files out into a difference repository
+- `stow` with directory path
+
+
