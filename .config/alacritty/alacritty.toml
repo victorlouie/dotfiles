@@ -29,7 +29,7 @@ bindings = [
 
 
 [font]
-normal.family = "MesloLGS Nerd Font Mono"
+normal.family = "Hack Nerd Font"
 
-size = 16
+size = 15
 

@@ -1,0 +1,127 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# ! opt-in for individual modules (e.g., aws, docker, gcloud, nodejs, python)
+# standalone format to get os glyph on ps1 line,
+# prompt character below
+format = """
+[](bg:#00FFFFFF fg:#7DF9AA)\
+$os\
+$username\
+$hostname\
+[](fg:#7DF9AA bg:#1C3A5E)\
+$time\
+[ ](fg:#1C3A5E bg:#3B76F0)\
+$directory\
+${custom.prompt_git_start_not}\
+${custom.prompt_git_start}\
+$git_branch\
+$git_status\
+$git_commit\
+$git_metrics\
+${custom.prompt_git_end}\
+$aws\
+$python\
+$cmd_duration
+$character
+"""
+
+[custom.prompt_git_start]
+when = "test -d .git"
+format = "[]($style)"
+style = "fg:#3B76F0 bg:#FCF392"
+
+[custom.prompt_git_start_not]
+when = "! test -d .git"
+format = "[ ]($style)"
+style = "fg:#3B76F0 bg:#00FFFFFF"
+
+[custom.prompt_git_end]
+when = "test -d .git"
+format = "[ ]($style)"
+style = "fg:#FCF392 bg:#00FFFFFF"
+
+# right_format = """
+# """
+
+[character]
+format = "$symbol "
+success_symbol = '[](bold green)'
+error_symbol = '[](bold purple)'
+
+[username]
+style_user = "bg:#7DF9AA fg:#090c0c"
+style_root = "red bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[@$hostname ](bg:#7DF9AA fg:#090c0c)"
+disabled = false
+
+[directory]
+home_symbol = "󰋜 "
+truncation_length = 25
+truncation_symbol = "󰇘 "
+truncate_to_repo = true
+style = "fg:#E4E4E4 bg:#3B76F0"
+read_only = "󰍁"
+read_only_style = "fg:#E4E4E4 bg:#3B76F0"
+format = '[  $path]($style)[$read_only ]($read_only_style)'
+
+[time]
+disabled = false
+time_format = "%T" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ 󱑍 $time ](bg:#1C3A5E fg:#8DFBD2)]($style)'
+
+[git_branch]
+symbol = "  "
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_metrics]
+format = "([ +$added]($added_style))([ -$deleted ]($deleted_style))"
+added_style = "fg:#1C3A5E bg:#FCF392"
+deleted_style = "fg:bright-red bg:#FCF392"
+disabled = false
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'bold blue'
+symbol = ' '
+
+# [aws.region_aliases]
+# ca-central-1 = ''
+
+[aws.profile_aliases]
+administrator-production-ready-serverless = 'admin-serverless'
+
+[os]
+format = '[$symbol ](bg:#7DF9AA fg:#090c0c)'
+style = "bg:#7DF9AA fg:#090c0cx"
+disabled = false
+
+[os.symbols]
+Linux = " "
+Macos = " "
+Mint = " "
+Raspbian = " "
+Redhat = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
