@@ -65,7 +65,6 @@ style = "bg:#1d2230"
 format = '[[ 󱑍 $time ](bg:#1C3A5E fg:#8DFBD2)]($style)'
 
 [git_branch]
-symbol = "  "
 format = '[ $symbol$branch(:$remote_branch) ]($style)'
 style = "fg:#1C3A5E bg:#FCF392"
 

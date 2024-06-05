@@ -12,36 +12,27 @@
 #       - functions
 #       - keybindings
 
+# Move over words with alphanumeric characters as "words"
+#  man zshall - ZLE FUNCTIONS
 autoload -U select-word-style
 select-word-style bash
 
-export STARSHIP_CACHE=~/.starship/cache
+# Tab completion with arrow keys
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
 
+export STARSHIP_CACHE=~/.starship/cache
 eval "$(starship init zsh)"
 
-# typeset -A ZSH_HIGHLIGHT_PATTERNS
+typeset -A ZSH_HIGHLIGHT_PATTERNS
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 
-# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
-# ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
-
-# # Which plugins would you like to load?
-# # Standard plugins can be found in $ZSH/plugins/
-# # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# # Example format: plugins=(rails git textmate ruby lighthouse)
-# # Add wisely, as too many plugins slow down shell startup.
-# plugins=(
-#   git
-#   history-substring-search
-# )
-
-# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+# Aliases
 #
 alias hc="history -c"
 alias hg="history | grep "
@@ -49,6 +40,8 @@ alias list="ls -al"
 alias reload="source ~/.zshrc"
 alias x="exit"
 
+# Functions
+#
 vscode () { 
   VSCODE_CWD="$PWD"
   /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code "$@" --new-window
@@ -58,17 +51,19 @@ subl() {
   /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl "$@" --new-window  # Open Sublime Text with specified arguments
 }
 
-# Install via brew
-# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-# source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Installed via brew
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # ---- FZF -----
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
-# key bindings
+# Key Bindings
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 #bindkey "e[5~" beginning-of-history
