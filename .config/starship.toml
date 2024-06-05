@@ -16,41 +16,25 @@ $hostname\
 $time\
 [ ](fg:#1C3A5E bg:#3B76F0)\
 $directory\
-${custom.prompt_git_start_not}\
-${custom.prompt_git_start}\
+[](fg:#3B76F0 bg:#FCF392)\
 $git_branch\
 $git_status\
 $git_commit\
 $git_metrics\
-${custom.prompt_git_end}\
+[](fg:#FCF392 bg:#00FFFFFF)\
 $aws\
 $python\
 $cmd_duration
 $character
 """
 
-[custom.prompt_git_start]
-when = "test -d .git"
-format = "[]($style)"
-style = "fg:#3B76F0 bg:#FCF392"
-
-[custom.prompt_git_start_not]
-when = "! test -d .git"
-format = "[ ]($style)"
-style = "fg:#3B76F0 bg:#00FFFFFF"
-
-[custom.prompt_git_end]
-when = "test -d .git"
-format = "[ ]($style)"
-style = "fg:#FCF392 bg:#00FFFFFF"
-
 # right_format = """
 # """
 
 [character]
 format = "$symbol "
-success_symbol = '[](bold green)'
-error_symbol = '[](bold purple)'
+success_symbol = '[](green)'
+error_symbol = '[](purple)'
 
 [username]
 style_user = "bg:#7DF9AA fg:#090c0c"
@@ -65,7 +49,7 @@ format = "[@$hostname ](bg:#7DF9AA fg:#090c0c)"
 disabled = false
 
 [directory]
-home_symbol = "󰋜 "
+home_symbol = "󰋜 ~"
 truncation_length = 25
 truncation_symbol = "󰇘 "
 truncate_to_repo = true
@@ -96,7 +80,7 @@ deleted_style = "fg:bright-red bg:#FCF392"
 disabled = false
 
 [os]
-format = '[$symbol ](bg:#7DF9AA fg:#090c0c)'
+format = '[$symbol](bg:#7DF9AA fg:#090c0c)'
 style = "bg:#7DF9AA fg:#090c0cx"
 disabled = false
 
