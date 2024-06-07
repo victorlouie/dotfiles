@@ -1,0 +1,341 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# ! opt-in for individual modules (e.g., aws, docker, gcloud, nodejs, python)
+# standalone format to get os glyph on ps1 line,
+# prompt character below
+format = """
+[](bg:#00FFFFFF fg:#7DF9AA)\
+$os\
+$username\
+$hostname\
+[](fg:#7DF9AA bg:#1C3A5E)\
+$time\
+[ ](fg:#1C3A5E bg:#3B76F0)\
+$directory\
+[](fg:#3B76F0 bg:#FCF392)\
+$git_branch\
+$git_status\
+$git_commit\
+$git_metrics\
+[](fg:#FCF392 bg:#00FFFFFF)\
+$aws\
+$python\
+$cmd_duration
+$character
+"""
+
+# right_format = """
+# """
+
+[character]
+format = "$symbol "
+success_symbol = '[](green)'
+error_symbol = '[](purple)'
+
+[username]
+style_user = "bg:#7DF9AA fg:#090c0c"
+style_root = "red bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[@$hostname ](bg:#7DF9AA fg:#090c0c)"
+disabled = false
+
+[directory]
+home_symbol = "󰋜 ~"
+truncation_length = 25
+truncation_symbol = "󰇘 "
+truncate_to_repo = true
+style = "fg:#E4E4E4 bg:#3B76F0"
+read_only = "󰍁"
+read_only_style = "fg:#E4E4E4 bg:#3B76F0"
+format = '[  $path]($style)[$read_only ]($read_only_style)'
+
+[time]
+disabled = false
+time_format = "%T" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ 󱑍 $time ](bg:#1C3A5E fg:#8DFBD2)]($style)'
+
+[git_branch]
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_metrics]
+format = "([ +$added]($added_style))([ -$deleted ]($deleted_style))"
+added_style = "fg:#1C3A5E bg:#FCF392"
+deleted_style = "fg:bright-red bg:#FCF392"
+disabled = false
+
+[os]
+format = '[$symbol](bg:#7DF9AA fg:#090c0c)'
+style = "bg:#7DF9AA fg:#090c0cx"
+disabled = false
+
+[os.symbols]
+Linux = " "
+Macos = " "
+Mint = " "
+Raspbian = " "
+Redhat = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'bold blue'
+symbol = ' '
+
+# [aws.region_aliases]
+# ca-central-1 = ''
+
+[aws.profile_aliases]
+administrator-production-ready-serverless = 'admin-serverless'
+
+### Disabled modules
+
+[azure]
+disabled = true
+
+[battery]
+disabled = true
+
+[buf]
+disabled = true
+
+[c]
+disabled = true
+
+[cmake]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[cobol]
+disabled = true
+
+[conda]
+disabled = true
+
+[container]
+disabled = true
+
+[crystal]
+disabled = true
+
+[custom]
+disabled = true
+
+[daml]
+disabled = true
+
+[dart]
+disabled = true
+
+[deno]
+disabled = true
+
+[direnv]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[env_var]
+disabled = true
+
+[erlang]
+disabled = true
+
+[fennel]
+disabled = true
+
+[fossil_branch]
+disabled = true
+
+[fossil_metrics]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_state]
+disabled = true
+
+[gleam]
+disabled = true
+
+[golang]
+disabled = true
+
+[gradle]
+disabled = true
+
+[guix_shell]
+disabled = true
+
+[haskell]
+disabled = true
+
+[haxe]
+disabled = true
+
+[helm]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[java]
+disabled = true
+
+[jobs]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[line_break]
+disabled = true
+
+[localip]
+disabled = true
+
+[lua]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[meson]
+disabled = true
+
+[nats]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[opa]
+disabled = true
+
+[openstack]
+disabled = true
+
+[package]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pijul_channel]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[quarto]
+disabled = true
+
+[raku]
+disabled = true
+
+[red]
+disabled = true
+
+[rlang]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[scala]
+disabled = true
+
+[shell]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[singularity]
+disabled = true
+
+[solidity]
+disabled = true
+
+[spack]
+disabled = true
+
+[status]
+disabled = true
+
+[sudo]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
+[typst]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[vcsh]
+disabled = true
+
+[vlang]
+disabled = true
+
+[zig]
+disabled = true

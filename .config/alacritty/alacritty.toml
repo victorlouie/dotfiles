@@ -9,27 +9,33 @@ TERM = "xterm-256color"
 padding.x = 10
 padding.y = 10
 
-#decorations = "Buttonless"
+# decorations = "Buttonless"
 
-opacity = 0.75
+opacity = 0.8
 blur = true
 
 #option_as_alt = "Both"
 
 [keyboard]
 bindings = [
-  { key = "Right", mods = "Alt", chars = "\u001BF" },
-  { key = "Left",  mods = "Alt", chars = "\u001BB" },
-  { key = "Back",  mods = "Alt", chars= "\u001b\u007f" },
-  { key = "Right", mods = "Super",  chars= "\u001bOF", mode= "AppCursor" },
-  { key = "Left", mods = "Super",  chars= "\u001bOH", mode= "AppCursor" },
-  { key = "Back", mods = "Super",  chars= "\u0015" }
-
+  { key = "Right", mods = "Alt",    chars = "\u001BF"           },
+  { key = "Left",  mods = "Alt",    chars = "\u001BB"           },
+  { key = "Back",  mods = "Alt",    chars= "\u001B\u007F"       },
+  { key = "Right", mods = "Super",  chars= "\u0005"             },
+  { key = "Left",  mods = "Super",  chars= "\u0001"             },
+  { key = "Back",  mods = "Super",  chars= "\u0015"             },
+  { key = "N",     mods = "Super",  action = "SpawnNewInstance" },
+  { key = "PageUp",  action = "ScrollLineUp" },
+  { key = "PageDown", action = "ScrollLineDown" },
+  { key = "Space",  mods = "Shift",  mode = "~Search", action = "ToggleViMode" }
 ]
 
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 10000
 
 [font]
-normal.family = "MesloLGS Nerd Font Mono"
-
-size = 16
-
+normal.family = "Hack Nerd Font"
+size = 15
