@@ -1,3 +1,3 @@
-# .zprofile [Load at logout]
+# .zlogout [Load at logout]
 #   - PRIORITY: 5
 #   - cleanup

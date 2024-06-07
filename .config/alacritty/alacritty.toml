@@ -18,18 +18,21 @@ blur = true
 
 [keyboard]
 bindings = [
-  { key = "Right", mods = "Alt", chars = "\u001BF" },
-  { key = "Left",  mods = "Alt", chars = "\u001BB" },
-  { key = "Back",  mods = "Alt", chars= "\u001B\u007F" },
-  { key = "Right", mods = "Super",  chars= "\u0005" },
-  { key = "Left",  mods = "Super",  chars= "\u0001" },
-  { key = "Back",  mods = "Super",  chars= "\u0015" },
-  { key = "N",  mods = "Super",  action = "SpawnNewInstance" }
+  { key = "Right", mods = "Alt",    chars = "\u001BF"           },
+  { key = "Left",  mods = "Alt",    chars = "\u001BB"           },
+  { key = "Back",  mods = "Alt",    chars= "\u001B\u007F"       },
+  { key = "Right", mods = "Super",  chars= "\u0005"             },
+  { key = "Left",  mods = "Super",  chars= "\u0001"             },
+  { key = "Back",  mods = "Super",  chars= "\u0015"             },
+  { key = "N",     mods = "Super",  action = "SpawnNewInstance" }
 ]
 
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 10000
 
 [font]
 normal.family = "Hack Nerd Font"
-
 size = 15
-

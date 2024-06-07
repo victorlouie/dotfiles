@@ -34,6 +34,25 @@ cd ~/.dotfiles
 stow --no-folding .
 ```
 
+### MacOS
+```sh
+brew install \
+    bat
+    eza
+    fd
+    fzf
+    font-hack-nerd-font
+    font-meslo-lg-nerd-font
+    git-delta
+    starship
+    thefuck
+    tlrc
+    zoxide
+    zsh-autosuggestions
+    zsh-history-substring-search
+    zsh-syntax-highlighting
+```
+
 > [!NOTE]
 > Default behaviour is link directories. `--no-folding` creates the directories and links the files instead of directories
 
