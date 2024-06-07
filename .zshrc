@@ -12,6 +12,8 @@
 #       - functions
 #       - keybindings
 
+export BAT_THEME=DarkNeon
+
 # Move over words with alphanumeric characters as "words"
 #  man zshall - ZLE FUNCTIONS
 autoload -U select-word-style
@@ -28,7 +30,6 @@ eval "$(starship init zsh)"
 typeset -A ZSH_HIGHLIGHT_PATTERNS
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
-
 
 # User configuration
 
