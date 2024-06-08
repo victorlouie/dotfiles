@@ -12,6 +12,11 @@
 #       - functions
 #       - keybindings
 
+fpath=(
+  ~/.zfunc
+  "${fpath[@]}"
+)
+
 export BAT_THEME=DarkNeon
 
 # Move over words with alphanumeric characters as "words"
@@ -94,9 +99,9 @@ for alias_file in ~/.zaliases/*.zsh; do
 done
 
 # Source functions
-for func_file in ~/.zfunc/*.zsh; do
-  source "$func_file"
-done
+# for func_file in ~/.zfunc/*.zsh; do
+#   source "$func_file"
+# done
 
 # Source scripts (if you need to run them)
 # for script_file in ~/scripts/*.sh; do

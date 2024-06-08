@@ -31,25 +31,28 @@ git clone git@github.com/victorlouie/dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
 
-stow --no-folding .
+stow -v --dotfiles --no-folding -t ~ home
+stow -v --dotfiles -t ~ zsh
+stow -v --dotfiles -t ~ git
+
 ```
 
 ### MacOS
 ```sh
 brew install \
-    bat
-    eza
-    fd
-    fzf
-    font-hack-nerd-font
-    font-meslo-lg-nerd-font
-    git-delta
-    starship
-    thefuck
-    tlrc
-    zoxide
-    zsh-autosuggestions
-    zsh-history-substring-search
+    bat \
+    eza \
+    fd \
+    fzf \
+    font-hack-nerd-font \
+    font-meslo-lg-nerd-font \
+    git-delta \
+    starship \
+    thefuck \
+    tlrc \
+    zoxide \
+    zsh-autosuggestions \
+    zsh-history-substring-search \
     zsh-syntax-highlighting
 ```
 
