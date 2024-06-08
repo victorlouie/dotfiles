@@ -35,6 +35,11 @@ stow -v --dotfiles --no-folding -t ~ home
 stow -v --dotfiles -t ~ zsh
 stow -v --dotfiles -t ~ git
 
+cd home
+stow -v --dotfiles -t ~ _all
+stow -v --dotfiles -t ~ macos
+
+
 ```
 
 ### MacOS
@@ -70,7 +75,6 @@ stow --no-folding -Dnv .
 ```
 
 ## Ideas 🤔
-- Separate the MacOS specific files out into a difference repository
-- `stow` with directory path
+- Make a script to automate
 
 
