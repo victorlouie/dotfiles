@@ -1,0 +1,8 @@
+alias cat="bat"
+alias cd="z"
+alias hc="history -c"
+alias hg="history | grep "
+alias list="ls -al"
+alias ls="eza --color=always --long --git --icons=always"
+alias reload="source ~/.zshrc"
+alias x="exit"

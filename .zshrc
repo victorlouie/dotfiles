@@ -31,36 +31,10 @@ typeset -A ZSH_HIGHLIGHT_PATTERNS
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 
-# User configuration
-
-# Aliases
-#
-alias hc="history -c"
-alias hg="history | grep "
-alias list="ls -al"
-alias reload="source ~/.zshrc"
-alias x="exit"
-
-alias ls="eza --color=always --long --git --icons=always"
-alias cd="z"
-
-# Functions
-#
-vscode () { 
-  VSCODE_CWD="$PWD"
-  /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code "$@" --new-window
-}
-subl() {
-  SUBLIME_CWD="$PWD"          # Set the current working directory to the present working directory
-  /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl "$@" --new-window
-}
-
 # Installed via brew
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-# ---- FZF -----
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
@@ -80,37 +54,10 @@ cyan="#2CF9ED"
 
 export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
-# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
-  fd --hidden --exclude .git . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type=d --hidden --exclude .git . "$1"
-}
-
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
-# Advanced customization of fzf options via _fzf_comprun function
-# - The first argument to the function is the name of the command.
-# - You should make sure to pass the rest of the arguments to fzf.
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    export|unset) fzf --preview "eval 'echo ${}'"         "$@" ;;
-    ssh)          fzf --preview 'dig {}'                   "$@" ;;
-    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
-  esac
-}
 
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
@@ -140,6 +87,24 @@ setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
+
+# Source aliases
+for alias_file in ~/.zaliases/*.zsh; do
+  source "$alias_file"
+done
+
+# Source functions
+for func_file in ~/.zfunc/*.zsh; do
+  source "$func_file"
+done
+
+# Source scripts (if you need to run them)
+# for script_file in ~/scripts/*.sh; do
+#   source "$script_file"
+# done
+
+# Set the theme
+# source ~/themes/custom_theme.zsh-theme
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
