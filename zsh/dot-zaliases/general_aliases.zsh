@@ -1,4 +1,3 @@
-alias cat="bat"
 alias cd="z"
 alias hc="history -c"
 alias hg="history | grep "
