@@ -127,11 +127,6 @@ for alias_file in ~/.zaliases/*.zsh; do
   source "$alias_file"
 done
 
-# Source functions
-#for func_file in ~/.zfunc/*.zsh; do
-#  source "$func_file"
-#done
-
 # Source scripts (if you need to run them)
 # for script_file in ~/scripts/*.sh; do
 #   source "$script_file"

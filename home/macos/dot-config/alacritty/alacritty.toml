@@ -18,16 +18,16 @@ blur = true
 
 [keyboard]
 bindings = [
-  { key = "Left",     mods = "Alt",    chars = "\u001BB"                         },
-  { key = "Right",    mods = "Alt",    chars = "\u001BF"                         },
-  { key = "Back",     mods = "Alt",    chars= "\u001B\u007F"                     },
-  { key = "Left",     mods = "Super",  chars= "\u0001"                           },
-  { key = "Right",    mods = "Super",  chars= "\u0005"                           },
-  { key = "Back",     mods = "Super",  chars= "\u0015"                           },
-  { key = "N",        mods = "Super",  action = "SpawnNewInstance"               },
-  { key = "PageUp",                    action = "ScrollPageUp"                   },
-  { key = "PageDown",                  action = "ScrollPageDown"                 },
-  { key = "Space",    mods = "Shift",  action = "ToggleViMode", mode = "~Search" }
+  { key = "Left",     mods = "Alt",     chars = "\u001BB"                         },
+  { key = "Right",    mods = "Alt",     chars = "\u001BF"                         },
+  { key = "Back",     mods = "Alt",     chars= "\u001B\u007F"                     },
+  { key = "Left",     mods = "Super",   chars= "\u0001"                           },
+  { key = "Right",    mods = "Super",   chars= "\u0005"                           },
+  { key = "Back",     mods = "Super",   chars= "\u0015"                           },
+  { key = "N",        mods = "Super",   action = "SpawnNewInstance"               },
+  { key = "PageUp",   mods = "Control", action = "ScrollPageUp"                   },
+  { key = "PageDown", mods = "Control", action = "ScrollPageDown"                 },
+  { key = "Space",    mods = "Shift",   action = "ToggleViMode", mode = "~Search" }
 ]
 
 [selection]
