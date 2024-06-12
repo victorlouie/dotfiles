@@ -1,2 +1,0 @@
-VSCODE_CWD="$PWD"
-/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code "$@" --new-window
