@@ -13,10 +13,10 @@
 #       - keybindings
 
 fpath=(
-  ~/.zfunc
+#  ~/.zfunc
   "${fpath[@]}"
 )
-autoload -U $fpath[1]/*(.:t)
+#autoload -U $fpath[1]/*(.:t)
 
 export BAT_THEME=DarkNeon
 
