@@ -20,6 +20,9 @@ fpath=(
 
 export BAT_THEME=DarkNeon
 
+setopt interactivecomments
+setopt HIST_IGNORE_SPACE
+
 # Move over words with alphanumeric characters as "words"
 #  man zshall - ZLE FUNCTIONS
 autoload -U select-word-style
@@ -33,14 +36,16 @@ zstyle ':completion:*' menu select
 export STARSHIP_CACHE=~/.starship/cache
 eval "$(starship init zsh)"
 
-typeset -A ZSH_HIGHLIGHT_PATTERNS
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
-ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
-
 # Installed via brew
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+typeset -A ZSH_HIGHLIGHT_PATTERNS
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
+ZSH_HIGHLIGHT_STYLES[comment]='fg=yellow'
+
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -93,7 +98,7 @@ export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 eval "$(zoxide init zsh)"
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"
 eval "$(mise activate zsh)"
 
 # Key Bindings
