@@ -11,8 +11,8 @@ padding.y = 10
 
 # decorations = "Buttonless"
 
-opacity = 0.8
-blur = true
+opacity = 0.9
+blur = false
 
 #option_as_alt = "Both"
 
@@ -39,4 +39,5 @@ multiplier = 5
 
 [font]
 normal.family = "Hack Nerd Font"
-size = 15
+size = 14
+
