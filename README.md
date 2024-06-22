@@ -1,5 +1,4 @@
 # My dotfiles
-
 ## Requirements
 
 Ensure you have the following installed
@@ -18,8 +17,7 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 
 ### Stow
-```sh
-$ brew install stow
+```sh $ brew install stow
 ```
 
 ## Installation
@@ -39,26 +37,8 @@ cd home
 stow -v --dotfiles -t ~ _all
 stow -v --dotfiles -t ~ macos
 
-
-```
-
-### MacOS
-```sh
-brew install \
-    bat \
-    eza \
-    fd \
-    fzf \
-    font-hack-nerd-font \
-    font-meslo-lg-nerd-font \
-    git-delta \
-    starship \
-    thefuck \
-    tlrc \
-    zoxide \
-    zsh-autosuggestions \
-    zsh-history-substring-search \
-    zsh-syntax-highlighting
+cd ../brew
+brew bundle install
 ```
 
 > [!NOTE]
