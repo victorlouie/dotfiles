@@ -1,5 +1,6 @@
 import = [
-    "~/.config/alacritty/themes/coolnight.toml"
+    "~/.config/alacritty/themes/catppuccin-mocha.toml"
+#    "~/.config/alacritty/themes/coolnight.toml"
 ]
 
 [env]
