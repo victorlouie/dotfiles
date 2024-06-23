@@ -19,9 +19,16 @@
     done = !git push origin HEAD
     lg   = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30
     clone-for-worktrees = "!sh $HOME/scripts/git-clone-bare-for-worktrees.sh"
+    sac = !git add . && git commit
+    cg = !git config --global -e
+    cpom = !git checkout main && git pull origin main
+    mm = !git merge main
+    ru = !git remote update
+    dasm = !git branch | grep -v "main" | xargs git branch -D
 
 [core]
     pager = delta
+    editor = vim
 
 [delta]
     navigate     = true    # use n and N to move between diff sections
@@ -42,3 +49,6 @@
 
 [pull]
     ff = only
+
+[commit]
+    template = ~/.gitmessage
