@@ -27,8 +27,9 @@
     dasm = !git branch | grep -v "main" | xargs git branch -D
 
 [core]
-    pager = delta
     editor = vim
+    excludesfile = ~/.gitignore_global
+    pager = delta
 
 [delta]
     navigate     = true    # use n and N to move between diff sections
