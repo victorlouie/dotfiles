@@ -1,3 +1,3 @@
-.DS_Store
 brew/Brewfile.lock.json
-
+vim/dot-vim/.netrwhist
+vim/dot-vim/plugged
