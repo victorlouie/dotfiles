@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+# Autoloading of a function without a body happens the first time.
+# However, when a function is already loaded, it has a body so you
+# will need to unload it (unfunction) it before it will update
+
+freload() {
+    while (( $# )); do;
+        unfunction $1;
+        autoload -U $1;
+        shift;
+    done
+}
