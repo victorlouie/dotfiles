@@ -473,7 +473,7 @@ in {
                 unbind b
                 unbind v
                 bind b command-prompt "rename-session '%%'"
-                bind v command-prompt "rename-window' %%'"
+                bind v command-prompt "rename-window '%%'"
             '';
         };
 
