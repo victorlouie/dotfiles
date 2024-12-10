@@ -474,6 +474,10 @@ in {
                 unbind v
                 bind b command-prompt "rename-session '%%'"
                 bind v command-prompt "rename-window '%%'"
+
+                set-option -g status-position top
+                set -g base-index 1
+                set -g renumber-windows
             '';
         };
 
