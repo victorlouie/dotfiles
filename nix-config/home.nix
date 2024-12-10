@@ -249,11 +249,17 @@ in {
                 bindkey "^[[1;3D" backward-word      # alt + left-arrow
                 bindkey "^[[3~"   delete-char        # delete character under cursor
 
+                # Key Bindings for tmux
+                bindkey "\E[1~"    beginning-of-line  # home
+                bindkey "\E[4~"    end-of-line        # end
             '';
 
             profileExtra = ''
                 # Enables GDM to find the .desktop files installed by Nix Home Manager
                 export XDG_DATA_DIRS="/home/${username}/.nix-profile/share:$XDG_DATA_DIRS"
+
+                # Automatically resassume roles
+                export GRANTED_ENABLE_AUTO_REASSUME=true
             '';
 
             inherit shellAliases;
@@ -423,6 +429,8 @@ in {
                     extraConfig = ''
                         set -g @catppuccin_flavor "mocha"
                         set -g @catppuccin_window_status_style "rounded"
+                        set -g @catppuccin_window_text "#W"
+                        set -g @catppuccin_window_current_text "#W"
 
                         # Make the status line pretty and add some modules
                         set -g status-right-length 100
@@ -460,6 +468,12 @@ in {
 
                 # Shortcut for mirroring output across panes
                 bind-key m setw synchronize-panes \; display-message 'Pane synchronization toggled'
+
+                # Rename sessions/windows
+                unbind b
+                unbind v
+                bind b command-prompt "rename-session '%%'"
+                bind v command-prompt "rename-window' %%'"
             '';
         };
 
