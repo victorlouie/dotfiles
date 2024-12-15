@@ -460,7 +460,6 @@ in {
                         set -g @yank_selection_mouse 'clipboard'
                     '';
                 }
-                tmuxPlugins.yank
                 tmuxPlugins.cpu
                 tmuxPlugins.battery
             ];
