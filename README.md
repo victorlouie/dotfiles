@@ -15,20 +15,24 @@ Tested on:
 ## Redhat
 
 ### System Installs
+```sh
 sudo dnf install -y \
     alsa-sof-firmware \
     epel-release \
     gnome-extensions-app \
     gnome-shell-extension-dash-to-dock \
     gnome-tweaks
+```
 
 ### System Tools
+```sh
 sudo dnf install -y \
     container-tools \
     git \
     fastfetch \
     make \
     xsel
+```
 
 ## Nix
 
