@@ -519,7 +519,7 @@ in {
 
     xdg = {
         enable = true;
-        mime.enable = true;
+        mime.enable = false;
     };
 }
 
