@@ -6,7 +6,7 @@
   palette = "catppuccin_mocha";
 
   format = ''
-    [](bg:transparent fg:green)$os$username$hostname[](fg:green bg:overlay0)$time[ ](fg:overlay0 bg:blue)$directory[](fg:blue bg:yellow)$git_branch$git_status$git_commit$git_metrics[](fg:yellow bg:transparent)$aws$python$cmd_duration
+    [](bg:transparent fg:green)$os$hostname[](fg:green bg:overlay0)$time[ ](fg:overlay0 bg:blue)$directory[](fg:blue bg:yellow)$git_branch$git_status$git_commit$git_metrics[](fg:yellow bg:transparent) $aws$python$cmd_duration
     $character
   '';
 
@@ -47,7 +47,7 @@
 
   hostname = {
     ssh_only = false;
-    format = "[@$hostname ](bg:green fg:mantle)";
+    format = "[ $hostname ](bg:green fg:mantle)";
     disabled = false;
   };
 
@@ -94,7 +94,7 @@
   };
 
   aws = {
-    format = " on [$symbol($profile) \\(($region)\\) \\[$duration\\] ]($style)";
+    format = "on [$symbol($profile) \\(($region)\\) \\[$duration\\] ]($style)";
     style = "bold peach";
     symbol = " ";
 

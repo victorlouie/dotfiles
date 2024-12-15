@@ -49,6 +49,8 @@ in {
             granted
             jq
             fira-code-nerdfont
+            mise
+            podman
             ripgrep
             ssm-session-manager-plugin
             starship
@@ -66,14 +68,17 @@ in {
             slack
             #sublime4
             #sublime-merge
-            vscode-with-extensions
+            (vscode-with-extensions.override {
+                vscodeExtensions = with vscode-extensions; [
+                    ms-python.python
+                ];
+            })
         ];
 
         file = {
             ".inputrc".text = ''
                 set bell-style visible
             '';
-            ".aws/config".source = config/aws/config;
             ".config/git/ignore".text = ''
                 .DS_Store
             '';
@@ -93,9 +98,10 @@ in {
     };
 
     programs = {
-        #awscli = {
-        #    enable = true;
-        #};
+        awscli = {
+            enable = true;
+            settings = import ./aws/config.nix;
+        };
 
         bash = {
             enable = true;
@@ -143,7 +149,7 @@ in {
             autosuggestion = {
                 enable = true;
                 highlight = "fg=#171438,bg=white,bold,underline";
-                strategy = [ "history" ];
+                strategy = [ "history" "completion" ];
             };
 
             completionInit = "autoload -Uz compinit && compinit && zstyle ':completion:*' menu select";
@@ -414,6 +420,11 @@ in {
             };
         };
 
+        mise = {
+            enable = true;
+            enableZshIntegration = true;
+        };
+
         tmux = {
             enable = true;
             terminal = "screen-256color";
@@ -441,6 +452,12 @@ in {
                         set -ag status-right  "#{E:@catppuccin_status_session}"
                         set -ag status-right  "#{E:@catppuccin_status_uptime}"
                         set -agF status-right "#{E:@catppuccin_status_battery}"
+                    '';
+                }
+                {
+                    plugin = tmuxPlugins.yank;
+                    extraConfig = ''
+                        set -g @yank_selection_mouse 'clipboard'
                     '';
                 }
                 tmuxPlugins.yank
@@ -475,9 +492,13 @@ in {
                 bind b command-prompt "rename-session '%%'"
                 bind v command-prompt "rename-window '%%'"
 
+                bind -T copy-mode-vi v send -X begin-selection
+                bind-key -T copy-mode-vi y send -X copy-selection-and-cancel
+                bind P paste-buffer
+
                 set-option -g status-position top
                 set -g base-index 1
-                set -g renumber-windows
+                set -g renumber-windows on
             '';
         };
 
