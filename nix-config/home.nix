@@ -46,7 +46,6 @@ in {
             fd
             fzf
             git
-            google-chrome
             granted
             jq
             fira-code-nerdfont
@@ -65,6 +64,8 @@ in {
             zsh-syntax-highlighting
             zsh-history-substring-search
             _1password-gui
+            brave
+            google-chrome
             obsidian
             slack
             #sublime4
