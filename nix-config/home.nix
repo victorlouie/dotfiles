@@ -1,7 +1,11 @@
-{ inputs
+{
+  config
+, inputs
 , outputs
 , lib
 , pkgs
+, nixgl
+, ghostty
 , ...
 }: let
     username = "victor";
@@ -26,8 +30,14 @@
             sha256 = "sha256-vBYBvZrMGLpMU059a+Z4SEekWdQD0GrDqBQyqfkEHPg=";
         };
     };
+   
 in {
     nixpkgs.config.allowUnfree = true;
+
+    nixGL.packages = nixgl.packages;
+    nixGL.defaultWrapper = "mesa";
+    nixGL.installScripts = [ "mesa" ];
+#`    nixGL.packages = import <nixgl> { inherit pkgs; };
 
     fonts = {
         fontconfig = {
@@ -64,6 +74,7 @@ in {
             zsh-syntax-highlighting
             zsh-history-substring-search
             _1password-gui
+            ghostty
             obsidian
             slack
             #sublime4
@@ -316,6 +327,11 @@ in {
                 "--preview 'eza --tree --color=always {} | head -200'"
             ];
         };
+
+        #ghostty = {
+        #  enable = true;
+        #    #package = config.lib.nixGL.wrap pkgs.ghostty;
+        #};
 
         git = {
             enable = true;
