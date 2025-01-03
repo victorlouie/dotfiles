@@ -42,6 +42,7 @@ in {
             bat
             bash-completion
             eza
+            fastfetch
             fd
             fzf
             git
