@@ -47,10 +47,13 @@ in {
             fzf
             git
             granted
+            inetutils
             jq
             fira-code-nerdfont
             mise
             podman
+            podman-compose
+            podman-desktop
             ripgrep
             ssm-session-manager-plugin
             starship
